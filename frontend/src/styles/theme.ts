@@ -6,6 +6,8 @@ export default {
     secondary: '#00C7C7',
     tertiary: '#96FEFF',
     quaternary: '#FFD666',
+    quintenary: '#15C3D6',
+    sextiary: '#17D6EB',
     background: '#EBF2F5',
     white: '#FFF',
     text: '#FFF',
@@ -21,11 +23,14 @@ export default {
   fontSizes: {
     small: '18px',
     normal: '24px',
-    big: '76px'
+    big: '48px',
+    giant: '76px'
   },
 
   lineHeights: {
+    small: '20px',
     normal: '34px',
-    big: '78px'
+    big: '42px',
+    giant: '78px'
   }
 } as const

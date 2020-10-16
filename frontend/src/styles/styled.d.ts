@@ -8,6 +8,8 @@ declare module 'styled-components' {
       secondary: string
       tertiary: string
       quaternary: string
+      quintenary: string
+      sextiary: string
       background: string
       white: string
       text: string
@@ -22,10 +24,13 @@ declare module 'styled-components' {
       small: string
       normal: string
       big: string
+      giant: string
     }
     lineHeights: {
+      small: string
       normal: string
       big: string
+      giant: string
     }
   }
 }
