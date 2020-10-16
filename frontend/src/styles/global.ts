@@ -16,7 +16,7 @@ export default createGlobalStyle`
 
   body, input, button, textarea {
     font: ${props => props.theme.fontWeights.normal} ${props =>
-  props.theme.fontSizes.normal} Nunito, sans-serif;
+  props.theme.fontSizes.small} Nunito, sans-serif;
   }
 
   a {
