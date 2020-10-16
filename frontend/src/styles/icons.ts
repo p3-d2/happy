@@ -1,1 +1,1 @@
-export { FiArrowRight } from 'react-icons/fi'
+export { FiArrowRight, FiPlus } from 'react-icons/fi'
