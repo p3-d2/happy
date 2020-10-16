@@ -1,5 +1,6 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
+import Routes from './Routes'
 
 import GlobalStyles from './styles/global'
 
@@ -10,7 +11,7 @@ const App: React.FC = () => {
     <ThemeProvider theme={Theme}>
       <GlobalStyles />
 
-      <h1>Pedro</h1>
+      <Routes />
     </ThemeProvider>
   )
 }
