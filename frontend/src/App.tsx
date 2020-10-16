@@ -1,6 +1,7 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import Routes from './Routes'
+import 'leaflet/dist/leaflet.css'
 
 import GlobalStyles from './styles/global'
 

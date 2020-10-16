@@ -41,8 +41,8 @@ export const Main = styled.main`
 
 export const Title = styled.h1`
   font-weight: ${props => props.theme.fontWeights.extraBold};
-  font-size: ${props => props.theme.fontSizes.big};
-  line-height: ${props => props.theme.lineHeights.big};
+  font-size: ${props => props.theme.fontSizes.giant};
+  line-height: ${props => props.theme.lineHeights.giant};
 `
 
 export const Details = styled.p`
