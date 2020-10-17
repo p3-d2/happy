@@ -6,7 +6,9 @@ export default {
   async index(req: Request, res: Response): Promise<any> {
     const orphanageRepository = getRepository(Orphanage)
 
-    const orphanages = await orphanageRepository.find()
+    const orphanages = await orphanageRepository.find({
+      relations: ['images']
+    })
 
     return res.status(200).json(orphanages)
   },
@@ -16,7 +18,9 @@ export default {
 
     const orphanageRepository = getRepository(Orphanage)
 
-    const orphanage = await orphanageRepository.findOneOrFail(id)
+    const orphanage = await orphanageRepository.findOneOrFail(id, {
+      relations: ['images']
+    })
 
     return res.status(200).json(orphanage)
   },
