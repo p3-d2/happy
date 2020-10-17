@@ -22,6 +22,7 @@
 		"prettier/prettier": "error",
 		"space-before-function-paren": "off",
     "react/prop-types": "off",
-    "camelcase": "off"
+    "camelcase": "off",
+    "@typescript-eslint/no-explicit-any": "off"
 	}
 }
