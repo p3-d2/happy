@@ -1,14 +1,15 @@
 import { Router } from 'express'
 import multer from 'multer'
+import multerConfig from './config/multer'
 
-import uploadConfig from './config/upload'
-import OrphanageController from './controllers/OrphanageControllers'
+import OrphanagesController from './controllers/OrphanagesController'
 
 const routes = Router()
-const upload = multer(uploadConfig)
+const upload = multer(multerConfig)
 
-routes.get('/orphanages', OrphanageController.index)
-routes.get('/orphanages/:id', OrphanageController.show)
-routes.post('/orphanages', upload.array('images'), OrphanageController.create)
+routes.get('/orphanages', OrphanagesController.index)
+routes.get('/orphanages/:id', OrphanagesController.show)
+
+routes.post('/orphanages', upload.array('images'), OrphanagesController.create)
 
 export default routes
