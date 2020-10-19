@@ -10,10 +10,13 @@ declare module 'styled-components' {
       quaternary: string
       quintenary: string
       sextiary: string
+      colorPopup: string
       background: string
+      backgroundPopup: string
       white: string
       text: string
       shadow: string
+      shadowPopup: string
     }
     fontWeights: {
       normal: number
@@ -23,6 +26,7 @@ declare module 'styled-components' {
     fontSizes: {
       small: string
       normal: string
+      popup: string
       big: string
       giant: string
     }
