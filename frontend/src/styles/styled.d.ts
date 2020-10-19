@@ -11,12 +11,15 @@ declare module 'styled-components' {
       quintenary: string
       sextiary: string
       colorPopup: string
+      hrColor: string
       background: string
       backgroundPopup: string
       backgroundButton: string
       sideBarGradientPrimary: string
       sideBarGradientSecondary: string
       backgroundInput: string
+      backgroundContainer: string
+      leafletContainer: string
       white: string
       text: string
       legendColor: string
@@ -25,11 +28,14 @@ declare module 'styled-components' {
       shadowPopup: string
       borderForm: string
       borderImage: string
+      borderContainer: string
       buttonActiveBackground: string
       buttonActiveBorder: string
       buttonActiveColor: string
       buttonConfirmBackground: string
       buttonConfirmHover: string
+      infoIcon: string
+      title: string
     }
     fontWeights: {
       normal: number
