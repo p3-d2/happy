@@ -14,10 +14,20 @@ export default {
     backgroundButton: '#12afcb',
     sideBarGradientPrimary: '#15b6d6',
     sideBarGradientSecondary: '#15d6d6',
+    backgroundInput: '#F5F8FA',
     white: '#FFF',
     text: '#FFF',
+    legendColor: '#5c8599',
+    labelColor: '#8fa7b3',
     shadow: 'rgba(0, 0, 0, 0.6)',
-    shadowPopup: 'rgba(23, 142, 166, 0.16)'
+    shadowPopup: 'rgba(23, 142, 166, 0.16)',
+    borderForm: '#d3e2e5',
+    borderImage: '#96d2f0',
+    buttonActiveBackground: '#edfff6',
+    buttonActiveBorder: '#a1e9c5',
+    buttonActiveColor: '#37c77f',
+    buttonConfirmBackground: '#3cdc8c',
+    buttonConfirmHover: '#36CF82'
   },
 
   fontWeights: {
@@ -27,9 +37,11 @@ export default {
   },
 
   fontSizes: {
+    tooSmall: '14px',
     small: '18px',
     normal: '24px',
-    popup: '28',
+    popup: '28px',
+    legend: '32px',
     big: '48px',
     giant: '76px'
   },

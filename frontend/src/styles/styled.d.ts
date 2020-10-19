@@ -16,10 +16,20 @@ declare module 'styled-components' {
       backgroundButton: string
       sideBarGradientPrimary: string
       sideBarGradientSecondary: string
+      backgroundInput: string
       white: string
       text: string
+      legendColor: string
+      labelColor: string
       shadow: string
       shadowPopup: string
+      borderForm: string
+      borderImage: string
+      buttonActiveBackground: string
+      buttonActiveBorder: string
+      buttonActiveColor: string
+      buttonConfirmBackground: string
+      buttonConfirmHover: string
     }
     fontWeights: {
       normal: number
@@ -27,9 +37,11 @@ declare module 'styled-components' {
       extraBold: number
     }
     fontSizes: {
+      tooSmall: string
       small: string
       normal: string
       popup: string
+      legend: string
       big: string
       giant: string
     }
