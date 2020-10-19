@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 import useTheme from '../../utils/useTheme'
 import mapIcon from '../../utils/mapIcon'
@@ -19,9 +19,22 @@ import {
 } from './styles'
 
 import mapMarker from '../../assets/mapMarker.svg'
+import api from '../../services/api'
+
+interface Orphanage {
+  id: number
+  latitude: number
+  longitude: number
+  name: string
+}
 
 const OrphanageMap: React.FC = () => {
   const { colors } = useTheme()
+  const [orphanages, setOrphanages] = useState<Orphanage[]>([])
+
+  useEffect(() => {
+    api.get('orphanages').then(response => setOrphanages(response.data))
+  }, [])
 
   return (
     <Container>
@@ -49,19 +62,21 @@ const OrphanageMap: React.FC = () => {
           /* don't copy my credential */
         />
 
-        <Marker icon={mapIcon} position={[-22.8965395, -43.6279325]}>
-          <Popup
-            closeButton={false}
-            minWidth={240}
-            maxWidth={240}
-            className="map-popup"
-          >
-            Lar das meninas
-            <Link to="/orphanages/1">
-              <ArrowIcon size={20} color={colors.white} />
-            </Link>
-          </Popup>
-        </Marker>
+        {orphanages.map(({ id, latitude, longitude, name }) => (
+          <Marker key={id} icon={mapIcon} position={[latitude, longitude]}>
+            <Popup
+              closeButton={false}
+              minWidth={240}
+              maxWidth={240}
+              className="map-popup"
+            >
+              {name}
+              <Link to={`/orphanages/${id}`}>
+                <ArrowIcon size={20} color={colors.white} />
+              </Link>
+            </Popup>
+          </Marker>
+        ))}
       </Map>
 
       <Link to="/orphanages/create">
