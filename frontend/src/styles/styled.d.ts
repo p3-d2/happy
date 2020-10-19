@@ -46,7 +46,6 @@ declare module 'styled-components' {
       tooSmall: string
       small: string
       normal: string
-      popup: string
       legend: string
       big: string
       giant: string

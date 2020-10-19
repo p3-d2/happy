@@ -46,7 +46,6 @@ export default {
     tooSmall: '14px',
     small: '18px',
     normal: '24px',
-    popup: '28px',
     legend: '32px',
     big: '48px',
     giant: '76px'

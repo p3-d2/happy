@@ -25,7 +25,7 @@ export const Container = styled.div`
       position: relative;
 
       color: ${props => props.theme.colors.colorPopup};
-      font-size: ${props => props.theme.fontSizes.popup};
+      font-size: ${props => props.theme.fontSizes.normal};
       font-weight: ${props => props.theme.fontWeights.bold};
       margin: 8px 12px;
 
@@ -39,8 +39,8 @@ export const Container = styled.div`
         right: -6px;
         transform: translateY(-50%);
 
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
         background: ${props => props.theme.colors.quintenary};
         box-shadow: 17.28px 27.65px 41.48px
           ${props => props.theme.colors.shadowPopup};
