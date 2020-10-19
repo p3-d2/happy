@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Link as ReactRouterDomLink } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import { FiArrowRight } from '../../styles/icons'
 
 import Landing from '../../assets/landing.svg'
@@ -13,9 +14,11 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  overflow: hidden;
 `
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(motion.div)`
   position: relative;
 
   max-width: 1100px;
@@ -33,9 +36,9 @@ export const Wrapper = styled.div`
   background-size: contain;
 `
 
-export const Imagem = styled.img``
+export const Imagem = styled(motion.img)``
 
-export const Main = styled.main`
+export const Main = styled(motion.main)`
   max-width: 350px;
 `
 
@@ -51,7 +54,7 @@ export const Details = styled.p`
   line-height: ${props => props.theme.lineHeights.normal};
 `
 
-export const Location = styled.div`
+export const Location = styled(motion.div)`
   position: absolute;
   right: 0;
   top: 0;
@@ -75,7 +78,9 @@ export const Link = styled(ReactRouterDomLink)`
   position: absolute;
   right: 0;
   bottom: 0;
+`
 
+export const IconWrapper = styled(motion.div)`
   width: 80px;
   height: 80px;
   background: ${props => props.theme.colors.quaternary};
@@ -84,12 +89,6 @@ export const Link = styled(ReactRouterDomLink)`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  transition: background-color 500ms;
-
-  &:hover {
-    background: ${props => props.theme.colors.tertiary};
-  }
 `
 
 export const ArrowIcon = styled(FiArrowRight)``
