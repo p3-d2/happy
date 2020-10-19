@@ -57,14 +57,14 @@ const OrphanageMap: React.FC = () => {
             className="map-popup"
           >
             Lar das meninas
-            <Link to="">
+            <Link to="/orphanages/1">
               <ArrowIcon size={20} color={colors.white} />
             </Link>
           </Popup>
         </Marker>
       </Map>
 
-      <Link to="/">
+      <Link to="/orphanages/create">
         <PlusIcon size={32} color={colors.white} />
       </Link>
     </Container>
