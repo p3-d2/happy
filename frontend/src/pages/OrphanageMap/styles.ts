@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Link as ReactRouterDomLink } from 'react-router-dom'
-import { FiPlus } from '../../styles/icons'
+import { FiPlus, FiArrowRight } from '../../styles/icons'
 
 export const Container = styled.div`
   position: relative;
@@ -12,6 +12,49 @@ export const Container = styled.div`
 
   .leaflet-container {
     z-index: 5;
+  }
+
+  .map-popup {
+    .leaflet-popup-content-wrapper {
+      background: ${props => props.theme.colors.backgroundPopup};
+      border-radius: 20px;
+      box-shadow: none;
+    }
+
+    .leaflet-popup-content {
+      position: relative;
+
+      color: ${props => props.theme.colors.colorPopup};
+      font-size: ${props => props.theme.fontSizes.popup};
+      font-weight: ${props => props.theme.fontWeights.bold};
+      margin: 8px 12px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      a {
+        position: absolute;
+        top: 50%;
+        right: -6px;
+        transform: translateY(-50%);
+
+        width: 30px;
+        height: 30px;
+        background: ${props => props.theme.colors.quintenary};
+        box-shadow: 17.28px 27.65px 41.48px
+          ${props => props.theme.colors.shadowPopup};
+        border-radius: 12px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .leaflet-popup-tip-container {
+      display: none;
+    }
   }
 `
 
@@ -80,3 +123,5 @@ export const Link = styled(ReactRouterDomLink)`
 `
 
 export const PlusIcon = styled(FiPlus)``
+
+export const ArrowIcon = styled(FiArrowRight)``

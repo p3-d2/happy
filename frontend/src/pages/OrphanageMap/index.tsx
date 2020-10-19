@@ -1,6 +1,7 @@
 import React from 'react'
-import { Map, TileLayer } from 'react-leaflet'
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 import useTheme from '../../utils/useTheme'
+import mapIcon from '../../utils/mapIcon'
 
 import {
   Container,
@@ -13,7 +14,8 @@ import {
   Strong,
   Span,
   Link,
-  PlusIcon
+  PlusIcon,
+  ArrowIcon
 } from './styles'
 
 import mapMarker from '../../assets/mapMarker.svg'
@@ -46,6 +48,20 @@ const OrphanageMap: React.FC = () => {
           url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
           /* don't copy my credential */
         />
+
+        <Marker icon={mapIcon} position={[-22.8965395, -43.6279325]}>
+          <Popup
+            closeButton={false}
+            minWidth={240}
+            maxWidth={240}
+            className="map-popup"
+          >
+            Lar das meninas
+            <Link to="">
+              <ArrowIcon size={20} color={colors.white} />
+            </Link>
+          </Popup>
+        </Marker>
       </Map>
 
       <Link to="/">
