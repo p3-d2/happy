@@ -13,6 +13,9 @@ declare module 'styled-components' {
       colorPopup: string
       background: string
       backgroundPopup: string
+      backgroundButton: string
+      sideBarGradientPrimary: string
+      sideBarGradientSecondary: string
       white: string
       text: string
       shadow: string

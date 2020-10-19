@@ -2,10 +2,12 @@ import React from 'react'
 
 import { Container } from './styles'
 
+import SideBar from '../../components/SideBar'
+
 const Orphanage: React.FC = () => {
   return (
     <Container>
-      <h1>Orphanage</h1>
+      <SideBar />
     </Container>
   )
 }
