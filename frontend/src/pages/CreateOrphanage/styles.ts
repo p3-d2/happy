@@ -28,6 +28,12 @@ export const Form = styled.form`
   div + div {
     margin-top: 24px;
   }
+
+  .leaflet-container {
+    margin-bottom: 40px;
+    border-radius: 20px;
+    border: 1px solid ${props => props.theme.colors.borderForm};
+  }
 `
 
 export const Fieldset = styled.fieldset`
@@ -47,7 +53,11 @@ export const Legend = styled.legend`
   padding-bottom: 24px;
 `
 
-export const InputBlock = styled.div``
+export const InputBlock = styled.div`
+  input[type='file'] {
+    display: none;
+  }
+`
 
 export const Label = styled.label`
   display: flex;
@@ -90,15 +100,31 @@ export const TextArea = styled.textarea`
   color: ${props => props.theme.colors.legendColor};
 `
 
-export const UploadedImages = styled.div``
-
-export const NewImage = styled.button`
+export const ImagesContainer = styled.div`
   width: 100%;
-  height: 64px;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 16px;
+`
+
+export const LabelNewImage = styled.label`
+  height: 96px;
   background: ${props => props.theme.colors.backgroundInput};
   border: 1px dashed ${props => props.theme.colors.borderImage};
   border-radius: 20px;
   cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const Img = styled.img`
+  width: 100%;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 20px;
 `
 
 export const PlusIcon = styled(FiPlus)``
