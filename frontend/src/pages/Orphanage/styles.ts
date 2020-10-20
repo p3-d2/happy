@@ -151,6 +151,16 @@ export const OpenOnWeekends = styled.div`
   );
   border: 1px solid ${props => props.theme.colors.buttonActiveBorder};
   color: ${props => props.theme.colors.buttonActiveColor};
+
+  &.dont-open {
+    background: linear-gradient(
+      154.16deg,
+      ${props => props.theme.colors.backgroundOpenOnWeekends} 7.85%,
+      ${props => props.theme.colors.white} 91.03%
+    );
+    border: 1px solid ${props => props.theme.colors.borderOpenOnWeekends};
+    color: ${props => props.theme.colors.colorOpenOnWeekends};
+  }
 `
 
 export const InfoIcon = styled(FiInfo)``

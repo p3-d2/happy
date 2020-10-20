@@ -19,6 +19,7 @@ declare module 'styled-components' {
       sideBarGradientSecondary: string
       backgroundInput: string
       backgroundContainer: string
+      backgroundOpenOnWeekends: string
       leafletContainer: string
       white: string
       text: string
@@ -29,6 +30,7 @@ declare module 'styled-components' {
       borderForm: string
       borderImage: string
       borderContainer: string
+      borderOpenOnWeekends: string
       buttonActiveBackground: string
       buttonActiveBorder: string
       buttonActiveColor: string
@@ -36,6 +38,7 @@ declare module 'styled-components' {
       buttonConfirmHover: string
       infoIcon: string
       title: string
+      colorOpenOnWeekends: string
     }
     fontWeights: {
       normal: number

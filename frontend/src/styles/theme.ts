@@ -17,6 +17,7 @@ export default {
     sideBarGradientSecondary: '#15d6d6',
     backgroundInput: '#F5F8FA',
     backgroundContainer: '#e6f7fb',
+    backgroundOpenOnWeekends: '#FDF0F5',
     leafletContainer: '#DDE3F0',
     white: '#FFF',
     text: '#FFF',
@@ -27,13 +28,15 @@ export default {
     borderForm: '#d3e2e5',
     borderImage: '#96d2f0',
     borderContainer: '#B3DAE2',
+    borderOpenOnWeekends: '#FFBCD4',
     buttonActiveBackground: '#edfff6',
     buttonActiveBorder: '#a1e9c5',
     buttonActiveColor: '#37c77f',
     buttonConfirmBackground: '#3cdc8c',
     buttonConfirmHover: '#36CF82',
     infoIcon: '#39CC83',
-    title: '#4D6F80'
+    title: '#4D6F80',
+    colorOpenOnWeekends: '#FF669D'
   },
 
   fontWeights: {
