@@ -1,6 +1,0 @@
-### Listar orfanatos
-GET http://localhost:3333/orphanages
-
-### Detalhes de um orfanato
-
-GET http://localhost:3333/orphanages/12
