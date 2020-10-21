@@ -28,8 +28,6 @@ const Landing: React.FC = () => {
       transition: {
         delay: 0.5,
         duration: 0.9,
-        when: 'beforeChildren',
-        staggerChildren: 1,
         type: 'spring'
       }
     }
