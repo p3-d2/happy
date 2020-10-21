@@ -42,65 +42,32 @@ const OrphanageMap: React.FC = () => {
     hidden: { x: -400 },
     visible: {
       x: 0,
-      transition: { delay: 0.3, duration: 0.8, type: 'spring' }
+      transition: {
+        when: 'beforeChildren',
+        staggerChildren: 0.3,
+        delay: 0.4,
+        duration: 0.8,
+        type: 'spring'
+      }
     }
   }
 
-  const logo = {
+  const global = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { delay: 1.4, duration: 0.5 }
-    }
-  }
-
-  const title = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { delay: 1.7, duration: 0.5 }
-    }
-  }
-
-  const details = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { delay: 2.0, duration: 0.5 }
-    }
-  }
-
-  const strong = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { delay: 2.3, duration: 0.5 }
-    }
-  }
-
-  const span = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { delay: 2.6, duration: 0.5 }
+      transition: { duration: 0.5 }
     }
   }
 
   const map = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { delay: 3.1, duration: 1 }
-    }
+    visible: { opacity: 1, transition: { delay: 2.8, duration: 0.5 } }
   }
 
   const button = {
-    hidden: { opacity: 0, scale: 1.4 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { delay: 4.3, duration: 1, type: 'spring' }
-    },
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { delay: 4, duration: 0.5 } },
     hover: {
       backgroundColor: colors.secondary,
       transition: { duration: 0.3 }
@@ -111,29 +78,17 @@ const OrphanageMap: React.FC = () => {
     <Container>
       <Aside variants={aside} initial="hidden" animate="visible">
         <Header>
-          <Img
-            src={mapMarker}
-            alt="Happy"
-            variants={logo}
-            initial="hidden"
-            animate="visible"
-          />
+          <Img src={mapMarker} alt="Happy" variants={global} />
 
-          <Title variants={title} initial="hidden" animate="visible">
-            Escolha um orfanato no mapa
-          </Title>
-          <Details variants={details} initial="hidden" animate="visible">
+          <Title variants={global}>Escolha um orfanato no mapa</Title>
+          <Details variants={global}>
             Muitas crianças estão esperando a sua visita
           </Details>
         </Header>
 
         <Footer>
-          <Strong variants={strong} initial="hidden" animate="visible">
-            Rio de Janeiro
-          </Strong>
-          <Span variants={span} initial="hidden" animate="visible">
-            Rio de Janeiro
-          </Span>
+          <Strong variants={global}>Rio de Janeiro</Strong>
+          <Span variants={global}>Rio de Janeiro</Span>
         </Footer>
       </Aside>
 
