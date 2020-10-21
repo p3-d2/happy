@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Map, TileLayer, Marker } from 'react-leaflet'
 import { useParams } from 'react-router-dom'
 import useTheme from '../../utils/useTheme'
+import LoadingOrphanage from '../../components/Shimmer/LoadingOrphanage'
 
 import {
   Container,
@@ -55,14 +56,20 @@ const Orphanage: React.FC = () => {
   const params = useParams<RoutesParams>()
   const [orphanage, setOrphanage] = useState<Orphanage>()
   const [activeImageIndex, setActiveImageIndex] = useState(0)
+  const [isLoading, setIsLoading] = useState(true)
+
   useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 4000)
+
     api
       .get(`orphanages/${params.id}`)
       .then(response => setOrphanage(response.data))
   }, [params.id])
 
-  if (!orphanage) {
-    return <p>Carregando...</p>
+  if (isLoading || !orphanage) {
+    return <LoadingOrphanage />
   }
 
   return (
