@@ -9,6 +9,7 @@ import {
   Form,
   Fieldset,
   Legend,
+  MapContainer,
   InputBlock,
   Label,
   Input,
@@ -87,35 +88,55 @@ const CreateOrphanage: React.FC = () => {
     history.push('/app')
   }
 
+  const main = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 0.2,
+        duration: 0.8,
+        when: 'beforeChildren',
+        staggerChildren: 1
+      }
+    }
+  }
+
+  const global = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1 } }
+  }
+
   return (
     <Container>
       <SideBar />
 
-      <Main>
+      <Main variants={main} initial="hidden" animate="visible">
         <Form onSubmit={handleSubmit}>
           <Fieldset>
-            <Legend>Dados</Legend>
+            <Legend variants={global}>Dados</Legend>
 
-            <Map
-              center={[-22.8901426, -43.6392363]}
-              style={{ width: '100%', height: 280 }}
-              zoom={15}
-              onClick={handleMapClick}
-            >
-              <TileLayer
-                url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
-              />
-
-              {position.latitude !== 0 && (
-                <Marker
-                  interactive={false}
-                  icon={mapIcon}
-                  position={[position.latitude, position.longitude]}
+            <MapContainer variants={global}>
+              <Map
+                center={[-22.8901426, -43.6392363]}
+                style={{ width: '100%', height: 280 }}
+                zoom={15}
+                onClick={handleMapClick}
+              >
+                <TileLayer
+                  url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
                 />
-              )}
-            </Map>
 
-            <InputBlock>
+                {position.latitude !== 0 && (
+                  <Marker
+                    interactive={false}
+                    icon={mapIcon}
+                    position={[position.latitude, position.longitude]}
+                  />
+                )}
+              </Map>
+            </MapContainer>
+
+            <InputBlock variants={global}>
               <Label htmlFor="name">Nome</Label>
               <Input
                 id="name"
@@ -124,7 +145,7 @@ const CreateOrphanage: React.FC = () => {
               />
             </InputBlock>
 
-            <InputBlock>
+            <InputBlock variants={global}>
               <Label htmlFor="about">
                 Sobre <Span>Máximo de 300 caracteres</Span>
               </Label>
@@ -136,7 +157,7 @@ const CreateOrphanage: React.FC = () => {
               />
             </InputBlock>
 
-            <InputBlock>
+            <InputBlock variants={global}>
               <Label htmlFor="images">Fotos</Label>
 
               <ImagesContainer>
@@ -159,9 +180,9 @@ const CreateOrphanage: React.FC = () => {
           </Fieldset>
 
           <Fieldset>
-            <Legend>Visitação</Legend>
+            <Legend variants={global}>Visitação</Legend>
 
-            <InputBlock>
+            <InputBlock variants={global}>
               <Label htmlFor="instructions">Instruções</Label>
               <TextArea
                 id="instructions"
@@ -170,7 +191,7 @@ const CreateOrphanage: React.FC = () => {
               />
             </InputBlock>
 
-            <InputBlock>
+            <InputBlock variants={global}>
               <Label htmlFor="opening_hours">Horário de funcionamento</Label>
               <Input
                 id="opening_hours"
@@ -179,7 +200,7 @@ const CreateOrphanage: React.FC = () => {
               />
             </InputBlock>
 
-            <InputBlock>
+            <InputBlock variants={global}>
               <Label htmlFor="open_on_weekends">Atende fim de semana</Label>
 
               <ButtonSelectDiv className="button-select">
@@ -201,7 +222,9 @@ const CreateOrphanage: React.FC = () => {
             </InputBlock>
           </Fieldset>
 
-          <ConfirmButton type="submit">Confirmar</ConfirmButton>
+          <ConfirmButton variants={global} type="submit">
+            Confirmar
+          </ConfirmButton>
         </Form>
       </Main>
     </Container>

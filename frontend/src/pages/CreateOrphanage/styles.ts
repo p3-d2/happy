@@ -1,11 +1,12 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 import { FiPlus } from '../../styles/icons'
 
 export const Container = styled.div`
   display: flex;
 `
 
-export const Main = styled.main`
+export const Main = styled(motion.main)`
   flex: 1;
 `
 
@@ -40,7 +41,7 @@ export const Fieldset = styled.fieldset`
   border: 0;
 `
 
-export const Legend = styled.legend`
+export const Legend = styled(motion.legend)`
   width: 100%;
 
   font-size: ${props => props.theme.fontSizes.legend};
@@ -53,7 +54,12 @@ export const Legend = styled.legend`
   padding-bottom: 24px;
 `
 
-export const InputBlock = styled.div`
+export const MapContainer = styled(motion.div)`
+  width: 100%;
+  height: 280px;
+`
+
+export const InputBlock = styled(motion.div)`
   input[type='file'] {
     display: none;
   }
@@ -85,7 +91,7 @@ export const Input = styled.input`
   color: ${props => props.theme.colors.legendColor};
 `
 
-export const TextArea = styled.textarea`
+export const TextArea = styled(motion.textarea)`
   width: 100%;
   min-height: 120px;
   max-height: 240px;
@@ -157,7 +163,7 @@ export const ButtonSelect = styled.button`
   }
 `
 
-export const ConfirmButton = styled.button`
+export const ConfirmButton = styled(motion.button)`
   margin-top: 64px;
 
   width: 100%;
