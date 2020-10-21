@@ -17,6 +17,8 @@ import {
   TextArea,
   ImagesContainer,
   LabelNewImage,
+  ImgWrapper,
+  ExcludeImg,
   Img,
   PlusIcon,
   ButtonSelectDiv,
@@ -29,6 +31,11 @@ import SideBar from '../../components/SideBar'
 import mapIcon from '../../utils/mapIcon'
 import api from '../../services/api'
 
+interface PreviewImage {
+  name: string
+  url: string
+}
+
 const CreateOrphanage: React.FC = () => {
   const history = useHistory()
   const [position, setPosition] = useState({ latitude: 0, longitude: 0 })
@@ -39,7 +46,7 @@ const CreateOrphanage: React.FC = () => {
   const [opening_hours, setOpeningHours] = useState('')
   const [open_on_weekends, setOpenOnWeekends] = useState(false)
   const [images, setImages] = useState<File[]>([])
-  const [previewImages, setPreviewImages] = useState<string[]>([])
+  const [previewImages, setPreviewImages] = useState<PreviewImage[]>([])
 
   function handleMapClick(event: LeafletMouseEvent) {
     const { lat, lng } = event.latlng
@@ -53,13 +60,43 @@ const CreateOrphanage: React.FC = () => {
 
     const selectedImages = Array.from(event.target.files)
 
-    setImages(selectedImages)
+    if (images) {
+      const Images: File[] = [...images, ...selectedImages]
+      setImages(Images)
+    }
+    if (!images) setImages(selectedImages)
 
-    const selectedImagesPreview = selectedImages.map(image =>
-      URL.createObjectURL(image)
-    )
+    const selectedImagesPreview: PreviewImage[] = selectedImages.map(image => ({
+      name: image.name,
+      url: URL.createObjectURL(image)
+    }))
 
-    setPreviewImages(selectedImagesPreview)
+    if (previewImages) {
+      const Previews: PreviewImage[] = [
+        ...previewImages,
+        ...selectedImagesPreview
+      ]
+      setPreviewImages(Previews)
+    }
+    if (!previewImages) setPreviewImages(selectedImagesPreview)
+  }
+
+  function handleDeleteImage(event: any) {
+    event.preventDefault()
+    const name = event.target.getAttribute('name')
+
+    const item = images.findIndex(image => image.name === name)
+    const imagesArray: File[] = [...images]
+    imagesArray.splice(item, 1)
+
+    setImages(imagesArray)
+
+    const imagesPreview = imagesArray.map(image => ({
+      name: image.name,
+      url: URL.createObjectURL(image)
+    }))
+
+    setPreviewImages(imagesPreview)
   }
 
   async function handleSubmit(event: FormEvent) {
@@ -162,7 +199,12 @@ const CreateOrphanage: React.FC = () => {
 
               <ImagesContainer>
                 {previewImages.map(image => (
-                  <Img key={image} src={image} alt={name} />
+                  <ImgWrapper key={image.name}>
+                    <ExcludeImg name={image.name} onClick={handleDeleteImage}>
+                      X
+                    </ExcludeImg>
+                    <Img src={image.url} alt={name} />
+                  </ImgWrapper>
                 ))}
 
                 <LabelNewImage htmlFor="image[]">

@@ -111,7 +111,10 @@ export const ImagesContainer = styled.div`
 
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 96px 96px;
   grid-gap: 16px;
+  align-items: start;
+  justify-content: start;
 `
 
 export const LabelNewImage = styled.label`
@@ -124,6 +127,35 @@ export const LabelNewImage = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
+`
+
+export const ImgWrapper = styled.div`
+  position: relative;
+
+  width: 100%;
+  height: 96px;
+  border-radius: 20px;
+`
+
+export const ExcludeImg = styled.button`
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 0 20px;
+
+  position: absolute;
+  top: 0px;
+  right: 0px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  font-size: 24px;
+  font-weight: 700;
+  color: red;
 `
 
 export const Img = styled.img`
