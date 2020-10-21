@@ -61,7 +61,7 @@ const Orphanage: React.FC = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false)
-    }, 4000)
+    }, 3000)
 
     api
       .get(`orphanages/${params.id}`)
@@ -72,18 +72,37 @@ const Orphanage: React.FC = () => {
     return <LoadingOrphanage />
   }
 
+  const main = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 0.2,
+        duration: 0.8,
+        when: 'beforeChildren',
+        staggerChildren: 1
+      }
+    }
+  }
+
+  const global = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1 } }
+  }
+
   return (
     <Container>
       <SideBar />
 
-      <Main>
+      <Main variants={main} initial="hidden" animate="visible">
         <OrphanageDetails>
           <ImgPrincipal
+            variants={global}
             src={orphanage.images[activeImageIndex]}
             alt={orphanage.name}
           />
 
-          <Imgs className="images">
+          <Imgs variants={global}>
             {orphanage.images.map((image, index) => (
               <ButtonImg
                 key={index}
@@ -97,10 +116,10 @@ const Orphanage: React.FC = () => {
           </Imgs>
 
           <OrphangeDetailsContent>
-            <Title>{orphanage.name}</Title>
-            <Details>{orphanage.about}</Details>
+            <Title variants={global}>{orphanage.name}</Title>
+            <Details variants={global}>{orphanage.about}</Details>
 
-            <MapContainer>
+            <MapContainer variants={global}>
               <Map
                 center={[orphanage.latitude, orphanage.longitude]}
                 zoom={16}
@@ -134,23 +153,23 @@ const Orphanage: React.FC = () => {
 
             <Hr />
 
-            <SubTitle>Instruções para visita</SubTitle>
-            <Details>{orphanage.instructions}</Details>
+            <SubTitle variants={global}>Instruções para visita</SubTitle>
+            <Details variants={global}>{orphanage.instructions}</Details>
 
             <OpenDetails>
-              <Hour>
+              <Hour variants={global}>
                 <ClockIcon size={32} color={colors.sideBarGradientPrimary} />
                 Segunda à Sexta <Br />
                 {orphanage.opening_hours}
               </Hour>
               {orphanage.open_on_weekends ? (
-                <OpenOnWeekends>
+                <OpenOnWeekends variants={global}>
                   <InfoIcon size={32} color={colors.infoIcon} />
                   Atendemos <Br />
                   fim de semana
                 </OpenOnWeekends>
               ) : (
-                <OpenOnWeekends className="dont-open">
+                <OpenOnWeekends className="dont-open" variants={global}>
                   <InfoIcon size={32} color={colors.colorOpenOnWeekends} />
                   Não Atendemos <Br />
                   fim de semana

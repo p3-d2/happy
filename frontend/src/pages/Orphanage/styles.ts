@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 import { FiClock, FiInfo, FaWhatsapp } from '../../styles/icons'
 
 export const Container = styled.div`
@@ -6,7 +7,7 @@ export const Container = styled.div`
   min-height: 100vh;
 `
 
-export const Main = styled.main`
+export const Main = styled(motion.main)`
   flex: 1;
 `
 
@@ -21,13 +22,13 @@ export const OrphanageDetails = styled.div`
   overflow: hidden;
 `
 
-export const ImgPrincipal = styled.img`
+export const ImgPrincipal = styled(motion.img)`
   width: 100%;
   height: 300px;
   object-fit: cover;
 `
 
-export const Imgs = styled.div`
+export const Imgs = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   column-gap: 16px;
@@ -61,20 +62,20 @@ export const OrphangeDetailsContent = styled.div`
   padding: 80px;
 `
 
-export const Title = styled.h1`
+export const Title = styled(motion.h1)`
   color: ${props => props.theme.colors.title};
   font-size: ${props => props.theme.fontSizes.big};
   line-height: ${props => props.theme.lineHeights.big};
   margin-bottom: 8px;
 `
 
-export const Details = styled.p`
+export const Details = styled(motion.p)`
   line-height: ${props => props.theme.lineHeights.normal};
   color: ${props => props.theme.colors.legendColor};
   margin-top: 24px;
 `
 
-export const MapContainer = styled.div`
+export const MapContainer = styled(motion.div)`
   margin-top: 64px;
   background: ${props => props.theme.colors.backgroundContainer};
   border: 1px solid ${props => props.theme.colors.borderContainer};
@@ -104,7 +105,7 @@ export const Hr = styled.hr`
   margin: 64px 0;
 `
 
-export const SubTitle = styled.h2`
+export const SubTitle = styled(motion.h2)`
   font-size: ${props => props.theme.fontSizes.legend};
   line-height: ${props => props.theme.lineHeights.big};
   color: ${props => props.theme.colors.title};
@@ -129,7 +130,7 @@ export const OpenDetails = styled.div`
   }
 `
 
-export const Hour = styled.div`
+export const Hour = styled(motion.div)`
   background: linear-gradient(
     149.97deg,
     ${props => props.theme.colors.backgroundContainer} 8.13%,
@@ -143,7 +144,7 @@ export const ClockIcon = styled(FiClock)``
 
 export const Br = styled.br``
 
-export const OpenOnWeekends = styled.div`
+export const OpenOnWeekends = styled(motion.div)`
   background: linear-gradient(
     154.16deg,
     ${props => props.theme.colors.buttonActiveBackground} 7.85%,
